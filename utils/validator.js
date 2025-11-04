@@ -11,6 +11,10 @@ export const registerSchema = object({
     name:string().min(3,"name ต้องมากกว่า 3 ตัวนะ"),
     password:string().min(6,"password มากกว่า 6 ตัวนะ"),
 })
+export const loginSchema = object({
+    email:string().email("email ไม่ถูกต้อง").required("กรุณากรอก email "),
+    password:string().min(6,"password มากกว่า 6 ตัวนะ"),
+})
 
 // funtion for validate 
 export const validate = (schema) =>  async(req,res,next) => {
